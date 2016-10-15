@@ -11,6 +11,16 @@
       "img-url": "/geekarist/inbop-api/master/arkose.jpg"
     },
     {
+      "name": "Karma",
+      "city": "Fontainebleau",
+      "img-url": "/geekarist/inbop-api/master/karma.jpg"
+    },
+    {
+      "name": "MurMur",
+      "city": "Pantin",
+      "img-url": "/geekarist/inbop-api/master/murmur.jpg"
+    },
+    {
       "name": "Hardbloc",
       "city": "Alfortville",
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg"
