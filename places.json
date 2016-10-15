@@ -21,6 +21,16 @@
       "img-url": "/geekarist/inbop-api/master/murmur.jpg"
     },
     {
+      "name": "Block'Out Paris",
+      "city": "Saint-Ouen",
+      "img-url": "/geekarist/inbop-api/master/blockout.jpg"
+    },
+    {
+      "name": "Blocbuster CNIT",
+      "city": "La Défense",
+      "img-url": "/geekarist/inbop-api/master/blocbuster.jpg"
+    },
+    {
       "name": "Hardbloc",
       "city": "Alfortville",
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg"
