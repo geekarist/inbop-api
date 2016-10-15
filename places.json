@@ -1,0 +1,16 @@
+{
+  "places": [
+    {
+      "name": "Antrebloc",
+      "city": "Villejuif"
+    },
+    {
+      "name": "Arkose",
+      "city": "Montreuil"
+    },
+    {
+      "name": "Hardbloc",
+      "city": "Alfortville"
+    }
+  ]
+}
