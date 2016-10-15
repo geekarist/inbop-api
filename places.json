@@ -2,15 +2,18 @@
   "places": [
     {
       "name": "Antrebloc",
-      "city": "Villejuif"
+      "city": "Villejuif",
+      "img-url": "/geekarist/inbop-api/master/antrebloc.jpg"
     },
     {
       "name": "Arkose",
-      "city": "Montreuil"
+      "city": "Montreuil",
+      "img-url": "/geekarist/inbop-api/master/arkose.jpg"
     },
     {
       "name": "Hardbloc",
-      "city": "Alfortville"
+      "city": "Alfortville",
+      "img-url": "/geekarist/inbop-api/master/hardbloc.jpg"
     }
   ]
 }
