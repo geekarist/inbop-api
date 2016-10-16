@@ -4,6 +4,7 @@
       "name": "Antrebloc",
       "city": "Villejuif",
       "img-url": "/geekarist/inbop-api/master/antrebloc.jpg",
+      "description": "Boulders and walls, quite difficult. Beer. Good music, sometimes reggae, sometimes classic rock.",
       "address": "5 rue Henri Barbusse, 94800 Villejuif",
       "transport": "Métro ligne 7, arrêt Léo Lagrange",
       "hours": {
@@ -28,6 +29,7 @@
       "img-url": "/geekarist/inbop-api/master/arkose.jpg",
       "address": "33 rue du Progrès, 93100 Montreuil",
       "transport": "Métro ligne 9 arrêt Robespierre, ou ligne 1 arrêt Saint-Mandé",
+      "description": "Only boulders. Easy boulders for beginners.",
       "hours": {
         "weekdays": {
           "opening": "08:00",
@@ -48,6 +50,7 @@
       "name": "Karma",
       "city": "Fontainebleau",
       "img-url": "/geekarist/inbop-api/master/karma.jpg",
+      "description": "Boulders and walls. The national french bouldering team trains here. Close to real boulders in the forest.",
       "address": "Route Militaire, 77300 Fontainebleau",
       "transport": "Bus ligne 3 ou ligne 8 arrêt Rocher d'avon",
       "hours": {
@@ -70,6 +73,7 @@
       "name": "MurMur",
       "city": "Pantin",
       "img-url": "/geekarist/inbop-api/master/murmur.jpg",
+      "description": "Boulders and walls. Almost new. Some boulders are... creative.",
       "address": "55 rue Cartier Bresson, 93500 Pantin",
       "transport": "Ligne 7 Aubervilliers Pantin, Quatre Chemins, Ligne T3b Ella Fitzgerald - Grands Moulins de Pantin, Ligne E Pantin",
       "hours": {
@@ -93,6 +97,7 @@
       "city": "Saint-Ouen",
       "img-url": "/geekarist/inbop-api/master/blockout.jpg",
       "address": "50 rue Ardoin, 93400 Saint-Ouen",
+      "description": "TODO",
       "transport": "Métro Garibaldi ou métro Mairie de Saint-Ouen (Ligne 13)",
       "hours": {
         "weekdays": {
@@ -115,6 +120,7 @@
       "city": "La Défense",
       "img-url": "/geekarist/inbop-api/master/blocbuster.jpg",
       "address": "2 place de la Défense, 92053 La Défense",
+      "description": "TODO",
       "transport": "RER A La Défense",
       "hours": {
         "weekdays": {
@@ -136,6 +142,7 @@
       "name": "Hardbloc",
       "city": "Alfortville",
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg",
+      "description": "Only boulders. Big and quiet. Includes a big wall, kind of an indoor Psicobloc.",
       "address": "11 rue Parmentier 94140 Alfortville",
       "transport": "Ligne 8 Ecole Veterinaire de Maisons-Alfort, Ligne D Maisons-Alfort Alfortville",
       "hours": {
