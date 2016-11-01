@@ -8,8 +8,12 @@
       "facebook": "antrebloc94",
       "email": "contact@antrebloc.com",
       "description": "Hard routes. Beer. Good music, sometimes reggae, sometimes classic rock.",
-      "address": "5 rue Henri Barbusse, 94800 Villejuif",
-      "transport": "Métro ligne 7, Léo Lagrange",
+      "position": {
+        "lat": 48.8033786,
+        "lon": 2.3659669,
+        "address": "5 rue Henri Barbusse, 94800 Villejuif",
+        "transport": "Métro ligne 7, Léo Lagrange"
+      },
       "hours": {
         "weekdays": {
           "opening": "11:00",
@@ -34,8 +38,10 @@
       "facebook": "arkose.climbing",
       "email": "contactmontreuil@arkose.com",
       "twitter": "https://twitter.com/arkoseclimbing",
-      "address": "33 rue du Progrès, 93100 Montreuil",
-      "transport": "Métro ligne 9 arrêt Robespierre, ou ligne 1 arrêt Saint-Mandé",
+      "position": {
+        "address": "33 rue du Progrès, 93100 Montreuil"
+        "transport": "Métro ligne 9 arrêt Robespierre, ou ligne 1 arrêt Saint-Mandé"
+      },
       "description": "Only boulders. Easy boulders for beginners.",
       "hours": {
         "weekdays": {
@@ -59,8 +65,10 @@
       "img-url": "/geekarist/inbop-api/master/karma.jpg",
       "url": "http://karma.ffme.fr",
       "description": "Boulders and walls. The national french bouldering team trains here. Close to real boulders in the forest.",
-      "address": "Route Militaire, 77300 Fontainebleau",
-      "transport": "Bus ligne 3 ou ligne 8 arrêt Rocher d'avon",
+      "position": {
+        "address": "Route Militaire, 77300 Fontainebleau",
+        "transport": "Bus ligne 3 ou ligne 8 arrêt Rocher d'Avon"
+      },
       "hours": {
         "weekdays": {
           "opening": "12:00",
@@ -83,8 +91,10 @@
       "img-url": "/geekarist/inbop-api/master/murmur.jpg",
       "url": "https://www.murmur.fr/escalade-bloc",
       "description": "Boulders and walls. Almost new. Some boulders are... creative.",
-      "address": "55 rue Cartier Bresson, 93500 Pantin",
-      "transport": "Ligne 7 Aubervilliers Pantin, Quatre Chemins, Ligne T3b Ella Fitzgerald - Grands Moulins de Pantin, Ligne E Pantin",
+      "position": {
+        "address": "55 rue Cartier Bresson, 93500 Pantin",
+        "transport": "Ligne 7 Aubervilliers Pantin, Quatre Chemins, Ligne T3b Ella Fitzgerald - Grands Moulins de Pantin, Ligne E Pantin"
+      },
       "hours": {
         "weekdays": {
           "opening": "09:30",
@@ -106,9 +116,11 @@
       "city": "Saint-Ouen",
       "img-url": "/geekarist/inbop-api/master/blockout.jpg",
       "url": "http://www.blockout.fr/bo2-paris",
-      "address": "50 rue Ardoin, 93400 Saint-Ouen",
+      "position": {
+        "address": "50 rue Ardoin, 93400 Saint-Ouen",
+        "transport": "Métro Garibaldi ou métro Mairie de Saint-Ouen (Ligne 13)"
+      },
       "description": "TODO",
-      "transport": "Métro Garibaldi ou métro Mairie de Saint-Ouen (Ligne 13)",
       "hours": {
         "weekdays": {
           "opening": "11:00",
@@ -130,9 +142,11 @@
       "city": "La Défense",
       "img-url": "/geekarist/inbop-api/master/blocbuster.jpg",
       "url": "http://www.blocbuster.fr/horaires-et-acces-cnit",
-      "address": "2 place de la Défense, 92053 La Défense",
       "description": "TODO",
-      "transport": "RER A La Défense",
+      "position": {
+        "address": "2 place de la Défense, 92053 La Défense",
+        "transport": "RER A La Défense"
+      },
       "hours": {
         "weekdays": {
           "opening": "10:00",
@@ -155,8 +169,10 @@
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg",
       "url": "https://www.hardbloc.fr",
       "description": "Only boulders. Big and quiet. Includes a big wall, kind of an indoor Psicobloc.",
-      "address": "11 rue Parmentier 94140 Alfortville",
-      "transport": "Ligne 8 Ecole Veterinaire de Maisons-Alfort, Ligne D Maisons-Alfort Alfortville",
+      "position": {
+        "address": "11 rue Parmentier 94140 Alfortville",
+        "transport": "Ligne 8 Ecole Veterinaire de Maisons-Alfort, Ligne D Maisons-Alfort Alfortville"
+      },
       "hours": {
         "weekdays": {
           "opening": "10:00",
