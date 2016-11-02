@@ -7,7 +7,7 @@
       "url": "http://www.antrebloc.com",
       "facebook": "antrebloc94",
       "email": "contact@antrebloc.com",
-      "description": "Hard routes. Beer. Good music, sometimes reggae, sometimes classic rock.",
+      "description": "Blocs difficiles : longs et pas mal de dévers. Bonne musique, parfois du reggae, parfois du rock classique, parfois des surprises. Salle de musculation bien équipée, avec appareils de cardio et zone d'étirements. Espace restauration sur petite terrasse. Salle refaite récemment. Quelques voies avec équipement d'auto assurage (enrouleurs) et grimpe en tête.",
       "position": {
         "lat": 48.8033786,
         "lon": 2.3659669,
@@ -42,7 +42,7 @@
         "address": "33 rue du Progrès, 93100 Montreuil",
         "transport": "Métro ligne 9 arrêt Robespierre, ou ligne 1 arrêt Saint-Mandé"
       },
-      "description": "Only boulders. Easy boulders for beginners.",
+      "description": "Niveau relativement facile, problèmes courts, bien équilibré au niveau de la répartition des profils (dalle/dévers). Champignon central pour des problèmes avec sortie par le dessus. Blocs pour enfants. Grand espace restauration. Quelques appareils de musculation, petit espace détente. Pas de voies.",
       "hours": {
         "weekdays": {
           "opening": "08:00",
@@ -64,7 +64,7 @@
       "city": "Fontainebleau",
       "img-url": "/geekarist/inbop-api/master/karma.jpg",
       "url": "http://karma.ffme.fr",
-      "description": "Boulders and walls. The national french bouldering team trains here. Close to real boulders in the forest.",
+      "description": "La salle où s'entraîne l'équipe de France. A 2 pas de la forêt de Fontainebleau, bonne solution de repli. Voies.",
       "position": {
         "address": "Route Militaire, 77300 Fontainebleau",
         "transport": "Bus ligne 3 ou ligne 8 arrêt Rocher d'Avon"
@@ -90,7 +90,6 @@
       "city": "Pantin",
       "img-url": "/geekarist/inbop-api/master/murmur.jpg",
       "url": "https://www.murmur.fr/escalade-bloc",
-      "description": "Boulders and walls. Almost new. Some boulders are... creative.",
       "position": {
         "address": "55 rue Cartier Bresson, 93500 Pantin",
         "transport": "Ligne 7 Aubervilliers Pantin, Quatre Chemins, Ligne T3b Ella Fitzgerald - Grands Moulins de Pantin, Ligne E Pantin"
@@ -120,7 +119,6 @@
         "address": "50 rue Ardoin, 93400 Saint-Ouen",
         "transport": "Métro Garibaldi ou métro Mairie de Saint-Ouen (Ligne 13)"
       },
-      "description": "TODO",
       "hours": {
         "weekdays": {
           "opening": "11:00",
@@ -142,7 +140,6 @@
       "city": "La Défense",
       "img-url": "/geekarist/inbop-api/master/blocbuster.jpg",
       "url": "http://www.blocbuster.fr/horaires-et-acces-cnit",
-      "description": "TODO",
       "position": {
         "address": "2 place de la Défense, 92053 La Défense",
         "transport": "RER A La Défense"
@@ -168,7 +165,7 @@
       "city": "Alfortville",
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg",
       "url": "https://www.hardbloc.fr",
-      "description": "Only boulders. Big and quiet. Includes a big wall, kind of an indoor Psicobloc.",
+      "description": "La plus grande salle de bloc de la région. Assez difficile. Zone pour les enfants. Salle de musculation bien équipée. Terrasse tranquille.",
       "position": {
         "address": "11 rue Parmentier 94140 Alfortville",
         "transport": "Ligne 8 Ecole Veterinaire de Maisons-Alfort, Ligne D Maisons-Alfort Alfortville"
