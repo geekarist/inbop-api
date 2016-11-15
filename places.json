@@ -1,6 +1,7 @@
 {
   "places": [
     {
+      "id": "a4d8521b-5c46-4b62-8aed-fecbdaf415bb",
       "name": "Antrebloc",
       "city": "Villejuif",
       "img-url": "/geekarist/inbop-api/master/antrebloc.jpg",
@@ -31,6 +32,7 @@
       }
     },
     {
+      "id": "1eeabfb0-ab07-11e6-81a8-5f748aed86fa",
       "name": "Arkose",
       "city": "Montreuil",
       "img-url": "/geekarist/inbop-api/master/arkose.jpg",
@@ -60,6 +62,7 @@
       }
     },
     {
+      "id": "43c0956c-ab07-11e6-96ab-334d2f7f5b14",
       "name": "Karma",
       "city": "Fontainebleau",
       "img-url": "/geekarist/inbop-api/master/karma.jpg",
@@ -86,6 +89,7 @@
       }
     },
     {
+      "id": "4fb476f4-ab07-11e6-a174-bb81c8e74022",
       "name": "MurMur",
       "city": "Pantin",
       "img-url": "/geekarist/inbop-api/master/murmur.jpg",
@@ -111,6 +115,7 @@
       }
     },
     {
+      "id": "576a4db0-ab07-11e6-8c5c-5b4e78b94fe0",
       "name": "Block'Out Paris",
       "city": "Saint-Ouen",
       "img-url": "/geekarist/inbop-api/master/blockout.jpg",
@@ -136,6 +141,7 @@
       }
     },
     {
+      "id": "5c624d90-ab07-11e6-a37f-eb0845ed1ac8",
       "name": "Blocbuster CNIT",
       "city": "La Défense",
       "img-url": "/geekarist/inbop-api/master/blocbuster.jpg",
@@ -161,6 +167,7 @@
       }
     },
     {
+      "id": "63086bf2-ab07-11e6-8dee-ab6056011762",
       "name": "Hardbloc",
       "city": "Alfortville",
       "img-url": "/geekarist/inbop-api/master/hardbloc.jpg",
