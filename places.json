@@ -4,7 +4,7 @@
       "id": "a4d8521b-5c46-4b62-8aed-fecbdaf415bb",
       "name": "Antrebloc",
       "city": "Villejuif",
-      "img-url": "/geekarist/inbop-api/master/antrebloc.jpg",
+      "img-url": "antrebloc.jpg",
       "url": "http://www.antrebloc.com",
       "facebook": "antrebloc94",
       "email": "contact@antrebloc.com",
@@ -35,7 +35,7 @@
       "id": "1eeabfb0-ab07-11e6-81a8-5f748aed86fa",
       "name": "Arkose",
       "city": "Montreuil",
-      "img-url": "/geekarist/inbop-api/master/arkose.jpg",
+      "img-url": "arkose.jpg",
       "url": "http://www.arkose.com",
       "facebook": "arkose.climbing",
       "email": "contactmontreuil@arkose.com",
@@ -65,7 +65,7 @@
       "id": "43c0956c-ab07-11e6-96ab-334d2f7f5b14",
       "name": "Karma",
       "city": "Fontainebleau",
-      "img-url": "/geekarist/inbop-api/master/karma.jpg",
+      "img-url": "karma.jpg",
       "url": "http://karma.ffme.fr",
       "description": "La salle où s'entraîne l'équipe de France. A 2 pas de la forêt de Fontainebleau, bonne solution de repli. Voies.",
       "position": {
@@ -92,7 +92,7 @@
       "id": "4fb476f4-ab07-11e6-a174-bb81c8e74022",
       "name": "MurMur",
       "city": "Pantin",
-      "img-url": "/geekarist/inbop-api/master/murmur.jpg",
+      "img-url": "murmur.jpg",
       "url": "https://www.murmur.fr/escalade-bloc",
       "position": {
         "address": "55 rue Cartier Bresson, 93500 Pantin",
@@ -118,7 +118,7 @@
       "id": "576a4db0-ab07-11e6-8c5c-5b4e78b94fe0",
       "name": "Block'Out Paris",
       "city": "Saint-Ouen",
-      "img-url": "/geekarist/inbop-api/master/blockout.jpg",
+      "img-url": "blockout.jpg",
       "url": "http://www.blockout.fr/bo2-paris",
       "position": {
         "address": "50 rue Ardoin, 93400 Saint-Ouen",
@@ -144,7 +144,7 @@
       "id": "5c624d90-ab07-11e6-a37f-eb0845ed1ac8",
       "name": "Blocbuster CNIT",
       "city": "La Défense",
-      "img-url": "/geekarist/inbop-api/master/blocbuster.jpg",
+      "img-url": "blocbuster.jpg",
       "url": "http://www.blocbuster.fr/horaires-et-acces-cnit",
       "position": {
         "address": "2 place de la Défense, 92053 La Défense",
@@ -170,7 +170,7 @@
       "id": "63086bf2-ab07-11e6-8dee-ab6056011762",
       "name": "Hardbloc",
       "city": "Alfortville",
-      "img-url": "/geekarist/inbop-api/master/hardbloc.jpg",
+      "img-url": "hardbloc.jpg",
       "url": "https://www.hardbloc.fr",
       "description": "La plus grande salle de bloc de la région. Assez difficile. Zone pour les enfants. Salle de musculation bien équipée. Terrasse tranquille.",
       "position": {
