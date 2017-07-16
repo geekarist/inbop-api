@@ -1,6 +1,5 @@
 var request = require('request');
-var facebook = require('./secret/facebook.json');
-var fs = require('fs');
+var express = require('express');
 
 function makeAddressString(originalPlace) {
 
@@ -57,40 +56,49 @@ function mapPlace(body) {
 
 function fetchPlace(url) {
     return new Promise((resolve, reject) => {
-        request(url,
-            (error, response, html) => {
-                if (error) {
-                    reject(`Fetching url [${url}] failed with error: ${error}, response body: ${response.body}`);
-                    return;
-                }
-                resolve(response.body);
-            });
+        request(url, (error, response, html) => {
+            if (error) {
+                reject(`Fetching url [${url}] failed with error: ${error}, response body: ${response.body}`);
+                return;
+            }
+            resolve(response.body);
         });
+    });
+}
+
+function makePageUrl(pageName) {
+
+    if (!process.env.FB_APP_ID || !process.env.FB_SECRET_KEY) {
+        throw 'Environment variables not found: FB_APP_ID and FB_SECRET_KEY';
     }
+    var token=`${process.env.FB_APP_ID}|${process.env.FB_SECRET_KEY}`;
 
-    function makePageUrl(pageName) {
+    var baseUrl = 'https://graph.facebook.com/v2.8';
+    var fields = ['name', 'username', 'hours', 'location', 'website', 'emails', 'cover', 'link', 'parking', 'phone', 'public_transit', 'single_line_address', 'about', 'price_range'];
+    var joinedFields = fields.join(',');
 
-        var baseUrl = 'https://graph.facebook.com/v2.8';
-        var token=`${facebook.appId}|${facebook.secretKey}`;
-        var fields = ['name', 'username', 'hours', 'location', 'website', 'emails', 'cover', 'link', 'parking', 'phone', 'public_transit', 'single_line_address', 'about', 'price_range'];
-        var joinedFields = fields.join(',');
+    return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
+}
 
-        return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
-    }
-
-    var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'
-];
+var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
 
 var urls = pageNames.map(makePageUrl);
-var today = new Date().toISOString().replace(/T.*$/, '');
-var path = `places-${today}.json`
 
 var fetchAllPlacesPromises = urls.map(fetchPlace);
 
+console.log('Fetching places...');
+
 Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
-    var mappedPlaces = allFetchedPlaces.map(mapPlace);
-    fs.writeFile(path, JSON.stringify(mappedPlaces, null, 2), err => {
-        if (err) throw err;
-        console.log(`${mappedPlaces.length} places saved into ${path}`)
+
+    var app = express();
+
+    var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
+    console.log(`${mappedPlaces.places.length} places fetched`);
+
+    app.get('/places.json', (req, res) => {
+        res.send(mappedPlaces);
     });
+
+    var port = 8000;
+    app.listen(port, () => console.log(`Listening on port ${port}`));
 });

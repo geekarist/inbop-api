@@ -1,5 +1,3 @@
-#!/bin/bash
-
-set -eux
-
-python -m SimpleHTTPServer
+#!/bin/sh
+. secret/facebook-env.sh
+node index.js
