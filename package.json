@@ -1,0 +1,23 @@
+{
+  "name": "inbop-api",
+  "version": "1.0.0",
+  "description": "Inbop API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekarist/inbop-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geekarist/inbop-api/issues"
+  },
+  "homepage": "https://github.com/geekarist/inbop-api#readme",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
