@@ -1,28 +1,6 @@
 var request = require('request');
 var facebook = require('./secret/facebook.json');
 
-var token=`${facebook.appId}|${facebook.secretKey}`;
-
-var pageName = 'antrebloc94';
-// var pageName = 'arkosenation';
-// var pageName = 'arkosemontreuil';
-// var pageName = 'hardblocparis';
-// Blocbuster CNIT
-// var pageName = '446762318846420';
-// var pageName = 'karma.escalade';
-// var pageName = 'murmurescalade';
-// Block'Out Osny
-// var pageName = 'blockoutofficiel';
-// Block'Out Cergy
-// var pageName = '245288228917623';
-
-var fields = [ 'name', 'username', 'hours', 'location', 'website', 'emails', 'cover', 'link', 'parking', 'phone', 'public_transit', 'single_line_address', 'about', 'price_range'];
-
-var joinedFields = fields.join(',');
-
-var baseUrl = 'https://graph.facebook.com/v2.8';
-var url = `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
-
 function makeAddressString(originalPlace) {
 
     if (!originalPlace.location) return null;
@@ -52,33 +30,61 @@ function mapPlace(body) {
         "email": originalPlace.emails && originalPlace.emails.join(', '),
         "description": originalPlace.about,
         "position": {
-          "lat": originalPlace.location && originalPlace.location.latitude,
-          "lon": originalPlace.location && originalPlace.location.longitude,
-          "address": makeAddressString(originalPlace),
-          "transport": originalPlace.public_transit,
+            "lat": originalPlace.location && originalPlace.location.latitude,
+            "lon": originalPlace.location && originalPlace.location.longitude,
+            "address": makeAddressString(originalPlace),
+            "transport": originalPlace.public_transit,
         },
         "hours": originalPlace.hours && {
-          "weekdays": {
-            "opening": originalPlace.hours.mon_1_open,
-            "closing": originalPlace.hours.mon_1_close
-          },
-          "weekend": {
-            "opening": originalPlace.hours.sat_1_open,
-            "closing": originalPlace.hours.sat_1_close
-          }
+            "weekdays": {
+                "opening": originalPlace.hours.mon_1_open,
+                "closing": originalPlace.hours.mon_1_close
+            },
+            "weekend": {
+                "opening": originalPlace.hours.sat_1_open,
+                "closing": originalPlace.hours.sat_1_close
+            }
         },
         "price": originalPlace.price_range && {
-          "adult": originalPlace.price_range,
-          "student": originalPlace.price_range,
-          "child": originalPlace.price_range
+            "adult": originalPlace.price_range,
+            "student": originalPlace.price_range,
+            "child": originalPlace.price_range
         }
     };
     return mappedPlace;
 }
 
-request(url,
-    (error, response, html) => {
-        console.log(`Response: ${response.statusCode}`);
-        var mappedResponse = mapPlace(response.body);
-        console.log(JSON.stringify(mappedResponse, null, 2));
-    });
+function fetchPlace(url) {
+    return new Promise((resolve, reject) => {
+        request(url,
+            (error, response, html) => {
+                if (error) {
+                    reject(`Fetching url [${url}] failed with error: ${error}, response body: ${response.body}`);
+                    return;
+                }
+                resolve(response.body);
+            });
+        });
+    }
+
+    function makePageUrl(pageName) {
+
+        var baseUrl = 'https://graph.facebook.com/v2.8';
+        var token=`${facebook.appId}|${facebook.secretKey}`;
+        var fields = ['name', 'username', 'hours', 'location', 'website', 'emails', 'cover', 'link', 'parking', 'phone', 'public_transit', 'single_line_address', 'about', 'price_range'];
+        var joinedFields = fields.join(',');
+
+        return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
+    }
+
+    var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'
+];
+
+var urls = pageNames.map(makePageUrl);
+
+var fetchAllPlacesPromises = urls.map(fetchPlace);
+
+Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
+    var mappedPlaces = allFetchedPlaces.map(mapPlace);
+    console.log(JSON.stringify(mappedPlaces, null, 2));
+});
