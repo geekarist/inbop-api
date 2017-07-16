@@ -1,5 +1,6 @@
 var request = require('request');
 var facebook = require('./secret/facebook.json');
+var fs = require('fs');
 
 function makeAddressString(originalPlace) {
 
@@ -81,10 +82,15 @@ function fetchPlace(url) {
 ];
 
 var urls = pageNames.map(makePageUrl);
+var today = new Date().toISOString().replace(/T.*$/, '');
+var path = `places-${today}.json`
 
 var fetchAllPlacesPromises = urls.map(fetchPlace);
 
 Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
     var mappedPlaces = allFetchedPlaces.map(mapPlace);
-    console.log(JSON.stringify(mappedPlaces, null, 2));
+    fs.writeFile(path, JSON.stringify(mappedPlaces, null, 2), err => {
+        if (err) throw err;
+        console.log(`${mappedPlaces.length} places saved into ${path}`)
+    });
 });
