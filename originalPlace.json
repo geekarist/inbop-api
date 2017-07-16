@@ -1,0 +1,48 @@
+{
+  "name": "Antrebloc",
+  "hours": {
+    "mon_1_open": "11:00",
+    "mon_1_close": "23:00",
+    "tue_1_open": "11:00",
+    "tue_1_close": "23:30",
+    "wed_1_open": "11:00",
+    "wed_1_close": "23:30",
+    "thu_1_open": "11:00",
+    "thu_1_close": "23:30",
+    "fri_1_open": "11:00",
+    "fri_1_close": "23:00",
+    "sat_1_open": "10:00",
+    "sat_1_close": "20:00",
+    "sun_1_open": "10:00",
+    "sun_1_close": "20:00"
+  },
+  "location": {
+    "city": "Villejuif",
+    "country": "France",
+    "latitude": 48.803789195794,
+    "longitude": 2.3650827067081,
+    "street": "5 Rue Henri Barbusse, 94800 Villejuif",
+    "zip": "94800"
+  },
+  "website": "http://www.antrebloc.com",
+  "emails": [
+    "antrebloc94@gmail.com"
+  ],
+  "cover": {
+    "cover_id": "1358214097549552",
+    "offset_x": 600,
+    "offset_y": 0,
+    "source": "https://scontent.xx.fbcdn.net/v/t1.0-9/s720x720/18740281_1358214097549552_1814893369749983280_n.jpg?oh=d688d9d5bbdadab7058ff0580c766e39&oe=59F88CC2",
+    "id": "1358214097549552"
+  },
+  "link": "https://www.facebook.com/antrebloc94/",
+  "parking": {
+    "lot": 1,
+    "street": 0,
+    "valet": 0
+  },
+  "phone": "01 47 26 52 44",
+  "public_transit": "M7: Villejuif leo Lagrange\n> 1er bloc à 257 mètres",
+  "single_line_address": "5 Rue Henri Barbusse, 94800 Villejuif, 94800 Villejuif",
+  "id": "152268498144124"
+}
