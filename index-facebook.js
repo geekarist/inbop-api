@@ -80,17 +80,7 @@ function makePageUrl(pageName) {
     return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
 }
 
-var googlePlaceIds = [
-    {antrebloc: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
-    {arkosenation: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
-    {hardbloc: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
-    {arkosemontreuil: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {karma: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc'},
-    {murmurpantin: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {blockoutstouen: 'ChIJRY3odh5v5kcRQZP4WgfKm'},
-    {blocbustercnit: 'eQD5gNl5kcR1fa8broSsfo'},
-    {blocbustercourbevoie: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
-]
+var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
 
 var urls = pageNames.map(makePageUrl);
 
