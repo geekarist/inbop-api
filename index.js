@@ -66,18 +66,16 @@ function fetchPlace(url) {
     });
 }
 
-function makePageUrl(pageName) {
+function makePageUrl(placeId) {
 
-    if (!process.env.FB_APP_ID || !process.env.FB_SECRET_KEY) {
-        throw 'Environment variables not found: FB_APP_ID and FB_SECRET_KEY';
+    if (!process.env.GOOGLE_API_KEY) {
+        throw 'Environment variable not found: GOOGLE_API_KEY';
     }
-    var token=`${process.env.FB_APP_ID}|${process.env.FB_SECRET_KEY}`;
+    var token=process.env.GOOGLE_API_KEY;
 
-    var baseUrl = 'https://graph.facebook.com/v2.8';
-    var fields = ['name', 'username', 'hours', 'location', 'website', 'emails', 'cover', 'link', 'parking', 'phone', 'public_transit', 'single_line_address', 'about', 'price_range'];
-    var joinedFields = fields.join(',');
+    var baseUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
 
-    return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
+    return `${baseUrl}/?api_key=${token}&placeid=${placeId}&language=fr`;
 }
 
 var googlePlaceIds = [
