@@ -21,34 +21,34 @@ function makeAddressString(originalPlace) {
 function mapPlace(body) {
     var originalPlace = JSON.parse(body);
     var mappedPlace = {
-        id: originalPlace.id,
-        name: originalPlace.name,
-        city: originalPlace.location && originalPlace.location.city,
-        'img-url': originalPlace.cover && originalPlace.cover.source,
-        url: originalPlace.website,
-        "facebook": originalPlace.username,
-        "email": originalPlace.emails && originalPlace.emails.join(', '),
-        "description": originalPlace.about,
+        id: 'TODO',
+        name: 'TODO',
+        city: 'TODO',
+        'img-url': 'TODO',
+        url: 'TODO',
+        "facebook": 'TODO',
+        "email": 'TODO',
+        "description": 'TODO',
         "position": {
-            "lat": originalPlace.location && originalPlace.location.latitude,
-            "lon": originalPlace.location && originalPlace.location.longitude,
-            "address": makeAddressString(originalPlace),
-            "transport": originalPlace.public_transit,
+            "lat": 'TODO',
+            "lon": 'TODO',
+            "address": 'TODO',
+            "transport": 'TODO',
         },
-        "hours": originalPlace.hours && {
+        "hours": 'TODO' && {
             "weekdays": {
-                "opening": originalPlace.hours.mon_1_open,
-                "closing": originalPlace.hours.mon_1_close
+                "opening": 'TODO',
+                "closing": 'TODO'
             },
             "weekend": {
-                "opening": originalPlace.hours.sat_1_open,
-                "closing": originalPlace.hours.sat_1_close
+                "opening": 'TODO',
+                "closing": 'TODO'
             }
         },
-        "price": originalPlace.price_range && {
-            "adult": originalPlace.price_range,
-            "student": originalPlace.price_range,
-            "child": originalPlace.price_range
+        "price": 'TODO' && {
+            "adult": 'TODO',
+            "student": 'TODO',
+            "child": 'TODO'
         }
     };
     return mappedPlace;
@@ -75,22 +75,24 @@ function makePageUrl(placeId) {
 
     var baseUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
 
-    return `${baseUrl}/?api_key=${token}&placeid=${placeId}&language=fr`;
+    var url = `${baseUrl}?api_key=${token}&placeid=${placeId.id}&language=fr`;
+    console.log(url);
+    return url;
 }
 
 var googlePlaceIds = [
-    {antrebloc: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
-    {arkosenation: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
-    {hardbloc: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
-    {arkosemontreuil: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {karma: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc'},
-    {murmurpantin: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {blockoutstouen: 'ChIJRY3odh5v5kcRQZP4WgfKm'},
-    {blocbustercnit: 'eQD5gNl5kcR1fa8broSsfo'},
-    {blocbustercourbevoie: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
+    {name: 'antrebloc', id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
+    {name: 'arkosenation', id: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
+    {name: 'hardbloc', id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
+    {name: 'arkosemontreuil', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
+    {name: 'karma', id: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc'},
+    {name: 'murmurpantin', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
+    {name: 'blockoutstouen', id: 'ChIJRY3odh5v5kcRQZP4WgfKm'},
+    {name: 'blocbustercnit', id: 'eQD5gNl5kcR1fa8broSsfo'},
+    {name: 'blocbustercourbevoie', id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
 ]
 
-var urls = pageNames.map(makePageUrl);
+var urls = googlePlaceIds.map(makePageUrl);
 
 var fetchAllPlacesPromises = urls.map(fetchPlace);
 
