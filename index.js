@@ -18,14 +18,31 @@ function makeAddressString(originalPlace) {
     return addressString;
 }
 
+function extractCity(originalPlace) {
+
+    var components = originalPlace.address_components;
+    if (!components || components.length == 0) return undefined;
+    var localityComponent = components.find(item => item.types && item.types.includes('locality'));
+    return localityComponent.long_name;
+}
+
+function extractImgReference(originalPlace) {
+
+    var photos = originalPlace.photos;
+    if (!photos || photos.length == 0) return undefined;
+    var reference = photos[0].photo_reference;
+    return reference;
+}
+
 function mapPlace(body) {
-    var originalPlace = JSON.parse(body);
+    var originalPlace = JSON.parse(body).result;
+    console.log(body);
     var mappedPlace = {
-        id: 'TODO',
-        name: 'TODO',
-        city: 'TODO',
-        'img-url': 'TODO',
-        url: 'TODO',
+        id: originalPlace.id || originalPlace.place_id,
+        name: originalPlace.name,
+        city: extractCity(originalPlace),
+        'img-reference': extractImgReference(originalPlace),
+        url: originalPlace.website,
         "facebook": 'TODO',
         "email": 'TODO',
         "description": 'TODO',
@@ -61,6 +78,7 @@ function fetchPlace(url) {
                 reject(`Fetching url [${url}] failed with error: ${error}, response body: ${response.body}`);
                 return;
             }
+            // TODO map place photo reference to url
             resolve(response.body);
         });
     });
@@ -75,21 +93,21 @@ function makePageUrl(placeId) {
 
     var baseUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
 
-    var url = `${baseUrl}?api_key=${token}&placeid=${placeId.id}&language=fr`;
+    var url = `${baseUrl}?key=${token}&placeid=${placeId.id}&language=fr`;
     console.log(url);
     return url;
 }
 
 var googlePlaceIds = [
     {name: 'antrebloc', id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
-    {name: 'arkosenation', id: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
-    {name: 'hardbloc', id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
-    {name: 'arkosemontreuil', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {name: 'karma', id: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc'},
-    {name: 'murmurpantin', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
-    {name: 'blockoutstouen', id: 'ChIJRY3odh5v5kcRQZP4WgfKm'},
-    {name: 'blocbustercnit', id: 'eQD5gNl5kcR1fa8broSsfo'},
-    {name: 'blocbustercourbevoie', id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
+    // {name: 'arkosenation', id: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
+    // {name: 'hardbloc', id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
+    // {name: 'arkosemontreuil', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
+    // {name: 'karma', id: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc'},
+    // {name: 'murmurpantin', id: 'ChIJV0KhsYNy5kcRcXctX9iFB58'},
+    // {name: 'blockoutstouen', id: 'ChIJRY3odh5v5kcRQZP4WgfKm'},
+    // {name: 'blocbustercnit', id: 'eQD5gNl5kcR1fa8broSsfo'},
+    // {name: 'blocbustercourbevoie', id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
 ]
 
 var urls = googlePlaceIds.map(makePageUrl);
