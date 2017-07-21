@@ -34,6 +34,22 @@ function extractImgReference(originalPlace) {
     return reference;
 }
 
+function extractWeekOpening(originalPlace) {
+    return 'TODO';
+}
+
+function extractWeekClosing(originalPlace) {
+    return 'TODO';
+}
+
+function extractWeekendOpening(originalPlace) {
+    return 'TODO';
+}
+
+function extractWeekendClosing(originalPlace) {
+    return 'TODO';
+}
+
 function mapPlace(body) {
     var originalPlace = JSON.parse(body).result;
     console.log(body);
@@ -43,23 +59,25 @@ function mapPlace(body) {
         city: extractCity(originalPlace),
         'img-reference': extractImgReference(originalPlace),
         url: originalPlace.website,
+        phone: originalPlace.international_phone_number,
         "facebook": 'TODO',
         "email": 'TODO',
         "description": 'TODO',
         "position": {
-            "lat": 'TODO',
-            "lon": 'TODO',
-            "address": 'TODO',
+            "lat": originalPlace.geometry && originalPlace.geometry.location && originalPlace.geometry.location.lat,
+            "lon": originalPlace.geometry && originalPlace.geometry.location && originalPlace.geometry.location.lng,
+            "address": originalPlace.formatted_address,
             "transport": 'TODO',
         },
-        "hours": 'TODO' && {
+        "hours": originalPlace.opening_hours && originalPlace.opening_hours.periods && {
+            "open_now": originalPlace.opening_hours.open_now,
             "weekdays": {
-                "opening": 'TODO',
-                "closing": 'TODO'
+                "opening": extractWeekOpening(originalPlace),
+                "closing": extractWeekClosing(originalPlace)
             },
             "weekend": {
-                "opening": 'TODO',
-                "closing": 'TODO'
+                "opening": extractWeekendOpening(originalPlace),
+                "closing": extractWeekendClosing(originalPlace)
             }
         },
         "price": 'TODO' && {
