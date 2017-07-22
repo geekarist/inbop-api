@@ -120,7 +120,7 @@ function makePageUrl(placeId) {
     return url;
 }
 
-var googlePlaceIds = [
+var sourcePlaces = [
     {name: 'antrebloc', id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
     // {name: 'arkosenation', id: 'ChIJ9wDUl3ly5kcR8t3okyximic'},
     // {name: 'hardbloc', id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg'},
@@ -132,7 +132,39 @@ var googlePlaceIds = [
     // {name: 'blocbustercourbevoie', id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
 ]
 
-var urls = googlePlaceIds.map(makePageUrl);
+var providers = [
+    {
+        name: 'google',
+        locate: id => 'http://TODO',
+        fetch: url => {},
+        convert: originalPlace => {}
+    },
+    {
+        name: 'facebook',
+        locate: id => 'http://TODO',
+        fetch: url => {},
+        convert: originalPlace => {}
+    },
+    {
+        name: 'antrebloc',
+        locate: id => 'http://TODO',
+        fetch: url => {},
+        convert: originalPlace => {}
+    }
+];
+
+var genericPlaces = [
+    {
+        name: 'antrebloc',
+        sources: [
+            {id: 'xxx', provider: providers.facebook},
+            {id: 'xxx', provider: providers.google},
+            {id: 'xxx', provider: providers.antrebloc}
+        ]
+    }
+]
+
+var urls = sourcePlaces.map(makePageUrl);
 
 var fetchAllPlacesPromises = urls.map(fetchPlace);
 
