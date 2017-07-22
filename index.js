@@ -35,19 +35,23 @@ function extractImgReference(originalPlace) {
 }
 
 function extractWeekOpening(originalPlace) {
-    return 'TODO';
+    var mondayPeriod = originalPlace.opening_hours.periods.find(period => period.close.day == 1);
+    return mondayPeriod && mondayPeriod.open && mondayPeriod.open.time;
 }
 
 function extractWeekClosing(originalPlace) {
-    return 'TODO';
+    var mondayPeriod = originalPlace.opening_hours.periods.find(period => period.close.day == 1);
+    return mondayPeriod && mondayPeriod.close && mondayPeriod.close.time;
 }
 
 function extractWeekendOpening(originalPlace) {
-    return 'TODO';
+    var saturdayPeriod = originalPlace.opening_hours.periods.find(period => period.close.day == 6);
+    return saturdayPeriod && saturdayPeriod.open && saturdayPeriod.open.time;
 }
 
 function extractWeekendClosing(originalPlace) {
-    return 'TODO';
+    var saturdayPeriod = originalPlace.opening_hours.periods.find(period => period.close.day == 6);
+    return saturdayPeriod && saturdayPeriod.close && saturdayPeriod.close.time;
 }
 
 function mapPlace(body) {
