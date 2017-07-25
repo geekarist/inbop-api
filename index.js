@@ -1,26 +1,23 @@
 var request = require('request');
 var express = require('express');
 
-var providers = [
-    {
-        name: 'google',
-        locate: id => 'http://TODO',
-        fetch: url => {},
-        convert: originalPlace => {}
-    },
-    {
-        name: 'facebook',
-        locate: id => 'http://TODO',
-        fetch: url => {},
-        convert: originalPlace => {}
-    },
-    {
-        name: 'antrebloc',
-        locate: id => 'http://TODO',
-        fetch: url => {},
-        convert: originalPlace => {}
+var providers =
+{
+    google: {
+        locate: id => {
+            console.log(`Locate for google: ${id}`);
+            return `http://TODO/id=${id}`;
+        },
+        fetch: url => {
+            console.log(`Fetch for google: ${url}`);
+            return {fetched: url};
+        },
+        convert: originalPlace => {
+            console.log(`Convert for google: ${JSON.stringify(originalPlace)}`);
+            return {converted: JSON.stringify(originalPlace)};
+        }
     }
-];
+};
 
 var sourcePlaces = [
     {name: 'antrebloc', id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
@@ -38,44 +35,23 @@ var genericPlaces = [
     {
         name: 'antrebloc',
         sources: [
-            {id: 'antrebloc94', provider: providers.facebook},
-            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            {id: 'antrebloc', provider: providers.custom}
+            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google}
         ]
     },
     {
         name: 'arkosenation',
         sources: [
-            {id: 'xxx', provider: providers.facebook},
-            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            {id: 'arkosenation', provider: providers.custom}
+            {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google}
         ]
     },
 ]
 
 genericPlaces.forEach(place => {
     place.sources.forEach(source => {
-        source.provider.locate(source.id).then(TODO);
+        Promise.resolve(source.id)
+            .then(source.provider.locate)
+            .then(source.provider.fetch)
+            .then(source.provider.convert)
+            .then(console.log);
     });
-});
-
-var urls = sourcePlaces.map(makePageUrl);
-
-var fetchAllPlacesPromises = urls.map(fetchPlace);
-
-console.log('Fetching places...');
-
-Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
-
-    var app = express();
-
-    var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
-    console.log(`${mappedPlaces.places.length} places fetched`);
-
-    app.get('/places.json', (req, res) => {
-        res.send(mappedPlaces);
-    });
-
-    var port = process.env.PORT || 8000;
-    app.listen(port, () => console.log(`Listening on port ${port}`));
 });
