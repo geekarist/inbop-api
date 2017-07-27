@@ -60,7 +60,7 @@ function mapPlace(body) {
         id: originalPlace.id || originalPlace.place_id,
         name: originalPlace.name,
         city: extractCity(originalPlace),
-        'img-reference': extractImgReference(originalPlace),
+        // 'img-reference': extractImgReference(originalPlace),
         url: originalPlace.website,
         phone: originalPlace.international_phone_number,
         "facebook": 'TODO',

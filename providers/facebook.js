@@ -24,7 +24,7 @@ function mapPlace(body) {
         // id: originalPlace.id,
         // name: originalPlace.name,
         // city: originalPlace.location && originalPlace.location.city,
-        // 'img-url': originalPlace.cover && originalPlace.cover.source,
+        'img-url': originalPlace.cover && originalPlace.cover.source,
         // url: originalPlace.website,
         "facebook": originalPlace.username,
         "email": originalPlace.emails && originalPlace.emails.join(', '),

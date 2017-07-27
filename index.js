@@ -26,7 +26,7 @@ var genericPlaces = [
     {
         name: 'antrebloc',
         sources: [
-            // {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
+            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
             {id: 'antrebloc94', provider: providers.facebook}
         ]
     },
@@ -40,11 +40,18 @@ var genericPlaces = [
 ]
 
 genericPlaces.forEach(place => {
-    place.sources.forEach(source => {
-        Promise.resolve(source.id)
-            .then(source.provider.locate)
-            .then(source.provider.fetch)
-            .then(source.provider.convert)
-            .then(console.log);
-    });
+
+    var fetchPlaceFromSources = place.sources.map(source =>
+                Promise.resolve(source.id)
+                    .then(source.provider.locate)
+                    .then(source.provider.fetch)
+                    .then(source.provider.convert));
+
+    Promise.all(fetchPlaceFromSources).then(allFetchedPlaces => {
+        var finalPlace = {};
+        allFetchedPlaces.forEach(fetchedPlace => {
+            Object.assign(finalPlace, fetchedPlace);
+        });
+        return finalPlace;
+    }).then(console.log);
 });
