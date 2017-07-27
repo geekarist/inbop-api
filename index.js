@@ -1,22 +1,13 @@
 var request = require('request');
 var express = require('express');
 
+var googleProvider = require('./providers/google.js')
+var facebookProvider = require('./providers/facebook.js')
+
 var providers =
 {
-    google: {
-        locate: id => {
-            console.log(`Locate for google: ${id}`);
-            return `http://TODO/id=${id}`;
-        },
-        fetch: url => {
-            console.log(`Fetch for google: ${url}`);
-            return {fetched: url};
-        },
-        convert: originalPlace => {
-            console.log(`Convert for google: ${JSON.stringify(originalPlace)}`);
-            return {converted: JSON.stringify(originalPlace)};
-        }
-    }
+    google: googleProvider,
+    facebook: facebookProvider
 };
 
 var sourcePlaces = [
@@ -35,13 +26,15 @@ var genericPlaces = [
     {
         name: 'antrebloc',
         sources: [
-            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google}
+            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
+            {id: 'xx', provider: providers.facebook}
         ]
     },
     {
         name: 'arkosenation',
         sources: [
-            {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google}
+            {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
+            {id: 'yy', provider: providers.facebook}
         ]
     },
 ]

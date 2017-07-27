@@ -80,25 +80,40 @@ function makePageUrl(pageName) {
     return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
 }
 
-var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
+// var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
+//
+// var urls = pageNames.map(makePageUrl);
+//
+// var fetchAllPlacesPromises = urls.map(fetchPlace);
+//
+// console.log('Fetching places...');
+//
+// Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
+//
+//     var app = express();
+//
+//     var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
+//     console.log(`${mappedPlaces.places.length} places fetched`);
+//
+//     app.get('/places.json', (req, res) => {
+//         res.send(mappedPlaces);
+//     });
+//
+//     var port = process.env.PORT || 8000;
+//     app.listen(port, () => console.log(`Listening on port ${port}`));
+// });
 
-var urls = pageNames.map(makePageUrl);
-
-var fetchAllPlacesPromises = urls.map(fetchPlace);
-
-console.log('Fetching places...');
-
-Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
-
-    var app = express();
-
-    var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
-    console.log(`${mappedPlaces.places.length} places fetched`);
-
-    app.get('/places.json', (req, res) => {
-        res.send(mappedPlaces);
-    });
-
-    var port = process.env.PORT || 8000;
-    app.listen(port, () => console.log(`Listening on port ${port}`));
-});
+module.exports = {
+    locate: id => {
+        console.log(`Locate for facebook: ${id}`);
+        return `http://TODO/id=${id}`;
+    },
+    fetch: url => {
+        console.log(`Fetch for facebook: ${url}`);
+        return {fetched: url};
+    },
+    convert: originalPlace => {
+        console.log(`Convert for facebook: ${JSON.stringify(originalPlace)}`);
+        return {converted: JSON.stringify(originalPlace)};
+    }
+};

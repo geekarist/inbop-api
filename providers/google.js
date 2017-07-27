@@ -164,23 +164,38 @@ var genericPlaces = [
     }
 ]
 
-var urls = sourcePlaces.map(makePageUrl);
+// var urls = sourcePlaces.map(makePageUrl);
+//
+// var fetchAllPlacesPromises = urls.map(fetchPlace);
+//
+// console.log('Fetching places...');
+//
+// Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
+//
+//     var app = express();
+//
+//     var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
+//     console.log(`${mappedPlaces.places.length} places fetched`);
+//
+//     app.get('/places.json', (req, res) => {
+//         res.send(mappedPlaces);
+//     });
+//
+//     var port = process.env.PORT || 8000;
+//     app.listen(port, () => console.log(`Listening on port ${port}`));
+// });
 
-var fetchAllPlacesPromises = urls.map(fetchPlace);
-
-console.log('Fetching places...');
-
-Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
-
-    var app = express();
-
-    var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
-    console.log(`${mappedPlaces.places.length} places fetched`);
-
-    app.get('/places.json', (req, res) => {
-        res.send(mappedPlaces);
-    });
-
-    var port = process.env.PORT || 8000;
-    app.listen(port, () => console.log(`Listening on port ${port}`));
-});
+module.exports = {
+    locate: id => {
+        console.log(`Locate for google: ${id}`);
+        return `http://TODO/id=${id}`;
+    },
+    fetch: url => {
+        console.log(`Fetch for google: ${url}`);
+        return {fetched: url};
+    },
+    convert: originalPlace => {
+        console.log(`Convert for google: ${JSON.stringify(originalPlace)}`);
+        return {converted: JSON.stringify(originalPlace)};
+    }
+};
