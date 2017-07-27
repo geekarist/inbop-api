@@ -56,7 +56,6 @@ function extractWeekendClosing(originalPlace) {
 
 function mapPlace(body) {
     var originalPlace = JSON.parse(body).result;
-    console.log(body);
     var mappedPlace = {
         id: originalPlace.id || originalPlace.place_id,
         name: originalPlace.name,
@@ -115,8 +114,7 @@ function makePageUrl(placeId) {
 
     var baseUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
 
-    var url = `${baseUrl}?key=${token}&placeid=${placeId.id}&language=fr`;
-    console.log(url);
+    var url = `${baseUrl}?key=${token}&placeid=${placeId}&language=fr`;
     return url;
 }
 
@@ -153,17 +151,6 @@ var providers = [
     }
 ];
 
-var genericPlaces = [
-    {
-        name: 'antrebloc',
-        sources: [
-            {id: 'xxx', provider: providers.facebook},
-            {id: 'xxx', provider: providers.google},
-            {id: 'xxx', provider: providers.antrebloc}
-        ]
-    }
-]
-
 // var urls = sourcePlaces.map(makePageUrl);
 //
 // var fetchAllPlacesPromises = urls.map(fetchPlace);
@@ -186,16 +173,7 @@ var genericPlaces = [
 // });
 
 module.exports = {
-    locate: id => {
-        console.log(`Locate for google: ${id}`);
-        return `http://TODO/id=${id}`;
-    },
-    fetch: url => {
-        console.log(`Fetch for google: ${url}`);
-        return {fetched: url};
-    },
-    convert: originalPlace => {
-        console.log(`Convert for google: ${JSON.stringify(originalPlace)}`);
-        return {converted: JSON.stringify(originalPlace)};
-    }
+    locate: makePageUrl,
+    fetch: fetchPlace,
+    convert: mapPlace
 };

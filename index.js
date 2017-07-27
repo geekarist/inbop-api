@@ -27,16 +27,16 @@ var genericPlaces = [
         name: 'antrebloc',
         sources: [
             {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            {id: 'xx', provider: providers.facebook}
+            // {id: 'antrebloc94', provider: providers.facebook}
         ]
     },
-    {
-        name: 'arkosenation',
-        sources: [
-            {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
-            {id: 'yy', provider: providers.facebook}
-        ]
-    },
+    // {
+    //     name: 'arkosenation',
+    //     sources: [
+    //         {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
+    //         {id: 'arkosenation', provider: providers.facebook}
+    //     ]
+    // },
 ]
 
 genericPlaces.forEach(place => {
