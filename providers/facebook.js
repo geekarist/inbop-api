@@ -21,35 +21,35 @@ function makeAddressString(originalPlace) {
 function mapPlace(body) {
     var originalPlace = JSON.parse(body);
     var mappedPlace = {
-        id: originalPlace.id,
-        name: originalPlace.name,
-        city: originalPlace.location && originalPlace.location.city,
-        'img-url': originalPlace.cover && originalPlace.cover.source,
-        url: originalPlace.website,
+        // id: originalPlace.id,
+        // name: originalPlace.name,
+        // city: originalPlace.location && originalPlace.location.city,
+        // 'img-url': originalPlace.cover && originalPlace.cover.source,
+        // url: originalPlace.website,
         "facebook": originalPlace.username,
         "email": originalPlace.emails && originalPlace.emails.join(', '),
         "description": originalPlace.about,
         "position": {
-            "lat": originalPlace.location && originalPlace.location.latitude,
-            "lon": originalPlace.location && originalPlace.location.longitude,
-            "address": makeAddressString(originalPlace),
+            // "lat": originalPlace.location && originalPlace.location.latitude,
+            // "lon": originalPlace.location && originalPlace.location.longitude,
+            // "address": makeAddressString(originalPlace),
             "transport": originalPlace.public_transit,
         },
-        "hours": originalPlace.hours && {
-            "weekdays": {
-                "opening": originalPlace.hours.mon_1_open,
-                "closing": originalPlace.hours.mon_1_close
-            },
-            "weekend": {
-                "opening": originalPlace.hours.sat_1_open,
-                "closing": originalPlace.hours.sat_1_close
-            }
-        },
-        "price": originalPlace.price_range && {
-            "adult": originalPlace.price_range,
-            "student": originalPlace.price_range,
-            "child": originalPlace.price_range
-        }
+        // "hours": originalPlace.hours && {
+            // "weekdays": {
+                // "opening": originalPlace.hours.mon_1_open,
+                // "closing": originalPlace.hours.mon_1_close
+            // },
+        //     "weekend": {
+        //         "opening": originalPlace.hours.sat_1_open,
+        //         "closing": originalPlace.hours.sat_1_close
+        //     }
+        // },
+        // "price": originalPlace.price_range && {
+        //     "adult": originalPlace.price_range,
+        //     "student": originalPlace.price_range,
+        //     "child": originalPlace.price_range
+        // }
     };
     return mappedPlace;
 }
@@ -104,16 +104,7 @@ function makePageUrl(pageName) {
 // });
 
 module.exports = {
-    locate: id => {
-        console.log(`Locate for facebook: ${id}`);
-        return `http://TODO/id=${id}`;
-    },
-    fetch: url => {
-        console.log(`Fetch for facebook: ${url}`);
-        return {fetched: url};
-    },
-    convert: originalPlace => {
-        console.log(`Convert for facebook: ${JSON.stringify(originalPlace)}`);
-        return {converted: JSON.stringify(originalPlace)};
-    }
+    locate: makePageUrl,
+    fetch: fetchPlace,
+    convert: mapPlace
 };

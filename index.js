@@ -26,8 +26,8 @@ var genericPlaces = [
     {
         name: 'antrebloc',
         sources: [
-            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            // {id: 'antrebloc94', provider: providers.facebook}
+            // {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
+            {id: 'antrebloc94', provider: providers.facebook}
         ]
     },
     // {
