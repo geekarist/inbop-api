@@ -172,8 +172,13 @@ var providers = [
 //     app.listen(port, () => console.log(`Listening on port ${port}`));
 // });
 
+function deliver(placeId) {
+    return Promise.resolve(placeId)
+        .then(makePageUrl)
+        .then(fetchPlace)
+        .then(mapPlace);
+}
+
 module.exports = {
-    locate: makePageUrl,
-    fetch: fetchPlace,
-    convert: mapPlace
+    deliver: deliver
 };

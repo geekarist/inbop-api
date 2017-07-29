@@ -30,28 +30,29 @@ var genericPlaces = [
             {id: 'antrebloc94', provider: providers.facebook}
         ]
     },
-    // {
-    //     name: 'arkosenation',
-    //     sources: [
-    //         {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
-    //         {id: 'arkosenation', provider: providers.facebook}
-    //     ]
-    // },
+    {
+        name: 'arkosenation',
+        sources: [
+            {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
+            {id: 'arkosenation', provider: providers.facebook}
+        ]
+    },
 ]
 
-genericPlaces.forEach(place => {
+var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
 
-    var fetchPlaceFromSources = place.sources.map(source =>
-                Promise.resolve(source.id)
-                    .then(source.provider.locate)
-                    .then(source.provider.fetch)
-                    .then(source.provider.convert));
+    var fetchPlaceFromSources = place.sources.map(source => source.provider.deliver(source.id));
 
-    Promise.all(fetchPlaceFromSources).then(allFetchedPlaces => {
+    return Promise.all(fetchPlaceFromSources).then(placeVersions => {
         var finalPlace = {};
-        allFetchedPlaces.forEach(fetchedPlace => {
-            Object.assign(finalPlace, fetchedPlace);
+        placeVersions.forEach(version => {
+            Object.assign(finalPlace, version);
         });
         return finalPlace;
-    }).then(console.log);
-});
+    });
+}));
+
+fetchAllPlacesPromise
+    .then(allFinalPlaces => ({places: allFinalPlaces}))
+    .then(apiResponse => JSON.stringify(apiResponse, null, 2))
+    .then(console.log);
