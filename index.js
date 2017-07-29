@@ -54,5 +54,16 @@ var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
 
 fetchAllPlacesPromise
     .then(allFinalPlaces => ({places: allFinalPlaces}))
-    .then(apiResponse => JSON.stringify(apiResponse, null, 2))
-    .then(console.log);
+    // .then(apiResponse => JSON.stringify(apiResponse, null, 2)).then(console.log)
+    .then(apiResponse => {
+        var app = express();
+
+        console.log(`${apiResponse.places.length} places fetched`);
+
+        app.get('/places.json', (req, res) => {
+            res.send(apiResponse);
+        });
+
+        var port = process.env.PORT || 8000;
+        app.listen(port, () => console.log(`Listening on port ${port}`));
+    });
