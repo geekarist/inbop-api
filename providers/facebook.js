@@ -35,21 +35,21 @@ function mapPlace(body) {
             // "address": makeAddressString(originalPlace),
             "transport": originalPlace.public_transit,
         },
-        // "hours": originalPlace.hours && {
-            // "weekdays": {
-                // "opening": originalPlace.hours.mon_1_open,
-                // "closing": originalPlace.hours.mon_1_close
-            // },
-        //     "weekend": {
-        //         "opening": originalPlace.hours.sat_1_open,
-        //         "closing": originalPlace.hours.sat_1_close
-        //     }
-        // },
-        // "price": originalPlace.price_range && {
-        //     "adult": originalPlace.price_range,
-        //     "student": originalPlace.price_range,
-        //     "child": originalPlace.price_range
-        // }
+        "hours": originalPlace.hours && {
+            "weekdays": {
+                "opening": originalPlace.hours.mon_1_open,
+                "closing": originalPlace.hours.mon_1_close
+            },
+            "weekend": {
+                "opening": originalPlace.hours.sat_1_open,
+                "closing": originalPlace.hours.sat_1_close
+            }
+        },
+        "price": originalPlace.price_range && {
+            "adult": originalPlace.price_range,
+            "student": originalPlace.price_range,
+            "child": originalPlace.price_range
+        }
     };
     return mappedPlace;
 }

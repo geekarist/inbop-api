@@ -1,5 +1,6 @@
 var request = require('request');
 var express = require('express');
+var merge = require('lodash.merge');
 
 var googleProvider = require('./providers/google.js')
 var facebookProvider = require('./providers/facebook.js')
@@ -22,6 +23,8 @@ var sourcePlaces = [
     // {name: 'blocbustercourbevoie', id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8'}
 ]
 
+// var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
+
 var genericPlaces = [
     {
         name: 'antrebloc',
@@ -37,6 +40,55 @@ var genericPlaces = [
             {id: 'arkosenation', provider: providers.facebook}
         ]
     },
+    {
+        name: 'hardbloc',
+        sources: [
+            {id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg', provider: providers.google},
+            {id: 'hardblocparis', provider: providers.facebook}
+        ]
+    },
+    {
+        name: 'arkosemontreuil',
+        sources: [
+            {id: 'ChIJV0KhsYNy5kcRcXctX9iFB58', provider: providers.google},
+            {id: 'arkosemontreuil', provider: providers.facebook}
+        ]
+    },
+    {
+        name: 'karma',
+        sources: [
+            {id: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc', provider: providers.google},
+            {id: 'karma.escalade', provider: providers.facebook}
+        ]
+    },
+    {
+        name: 'murmurpantin',
+        sources: [
+            {id: 'ChIJV0KhsYNy5kcRcXctX9iFB58', provider: providers.google},
+            {id: 'murmurescalade', provider: providers.facebook}
+        ]
+    },
+    // {
+    //     name: 'blockoutstouen',
+    //     sources: [
+    //         {id: 'ChIJRY3odh5v5kcRQZP4WgfKm', provider: providers.google},
+    //         {id: '1734869523403048', provider: providers.facebook} // 1734869523403048 BlockOut
+    //     ]
+    // },
+    // {
+    //     name: 'blocbustercnit',
+    //     sources: [
+    //         {id: 'eQD5gNl5kcR1fa8broSsfo', provider: providers.google},
+    //         {id: '446762318846420', provider: providers.facebook} // 446762318846420 Blocbuster-La-Défense
+    //     ]
+    // },
+    {
+        name: 'blocbustercourbevoie',
+        sources: [
+            {id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8', provider: providers.google},
+            {id: 'blocbuster', provider: providers.facebook}
+        ]
+    }
 ]
 
 var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
@@ -46,7 +98,7 @@ var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
     return Promise.all(fetchPlaceFromSources).then(placeVersions => {
         var finalPlace = {};
         placeVersions.forEach(version => {
-            Object.assign(finalPlace, version);
+            merge(finalPlace, version);
         });
         return finalPlace;
     });

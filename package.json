@@ -19,6 +19,7 @@
   "homepage": "https://github.com/geekarist/inbop-api#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "lodash.merge": "^4.6.0",
     "request": "^2.81.0"
   }
 }
