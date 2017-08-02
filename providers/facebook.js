@@ -20,6 +20,7 @@ function makeAddressString(originalPlace) {
 
 function mapPlace(body) {
     var originalPlace = JSON.parse(body);
+
     var mappedPlace = {
         // id: originalPlace.id,
         // name: originalPlace.name,
@@ -79,29 +80,6 @@ function makePageUrl(pageName) {
 
     return `${baseUrl}/${pageName}?fields=${joinedFields}&access_token=${token}`;
 }
-
-// var pageNames = ['antrebloc94', 'arkosenation' , 'arkosemontreuil', 'hardblocparis', '446762318846420', 'karma.escalade', 'murmurescalade', 'blockoutofficiel', '245288228917623'];
-//
-// var urls = pageNames.map(makePageUrl);
-//
-// var fetchAllPlacesPromises = urls.map(fetchPlace);
-//
-// console.log('Fetching places...');
-//
-// Promise.all(fetchAllPlacesPromises).then(allFetchedPlaces => {
-//
-//     var app = express();
-//
-//     var mappedPlaces = {places: allFetchedPlaces.map(mapPlace)};
-//     console.log(`${mappedPlaces.places.length} places fetched`);
-//
-//     app.get('/places.json', (req, res) => {
-//         res.send(mappedPlaces);
-//     });
-//
-//     var port = process.env.PORT || 8000;
-//     app.listen(port, () => console.log(`Listening on port ${port}`));
-// });
 
 function deliver(placeId) {
     return Promise.resolve(placeId)
