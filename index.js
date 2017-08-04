@@ -2,23 +2,41 @@ var request = require('request');
 var express = require('express');
 var merge = require('lodash.merge');
 
-var googleProvider = require('./providers/google.js')
-var facebookProvider = require('./providers/facebook.js')
+var googleProvider = require('./providers/google.js');
+var facebookProvider = require('./providers/facebook.js');
+var webProvider = require('./providers/web.js');
 
 var providers =
 {
     google: googleProvider,
-    facebook: facebookProvider
+    facebook: facebookProvider,
+    web: webProvider
 };
 
 var genericPlaces = [
     {
         name: 'antrebloc',
         sources: [
-            {id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            {id: 'antrebloc94', provider: providers.facebook}
+            {
+                id: 'http://www.antrebloc.com/antrebloc',
+                provider: providers.web,
+                configuration: {
+                    selection: [{
+                        field: 'price_adult',
+                        selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(1) > td:nth-child(2)'
+                    }, {
+                        field: 'price_student',
+                        selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(2) > td:nth-child(2)'
+                    }, {
+                        field: 'price_child',
+                        selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(3) > td:nth-child(2)'
+                    }]
+                }
+            }
+            /*{id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
+            {id: 'antrebloc94', provider: providers.facebook}*/
         ]
-    },
+    }/*,
     {
         name: 'arkosenation',
         sources: [
@@ -74,12 +92,12 @@ var genericPlaces = [
             {id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8', provider: providers.google},
             {id: 'blocbuster', provider: providers.facebook}
         ]
-    }
+    }*/
 ]
 
 var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
 
-    var fetchPlaceFromSources = place.sources.map(source => source.provider.deliver(source.id));
+    var fetchPlaceFromSources = place.sources.map(source => source.provider.deliver(source.id, source.configuration));
 
     return Promise.all(fetchPlaceFromSources).then(placeVersions => {
         var finalPlace = {};
