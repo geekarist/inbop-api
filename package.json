@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/geekarist/inbop-api#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.15.3",
     "lodash.merge": "^4.6.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   }
 }

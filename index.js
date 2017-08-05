@@ -14,43 +14,69 @@ var providers =
 };
 
 var genericPlaces = [
-    {
+    /*{
         name: 'antrebloc',
         sources: [
+            {provider: providers.google, id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
+            {provider: providers.facebook, id: 'antrebloc94'},
             {
-                id: 'http://www.antrebloc.com/antrebloc',
                 provider: providers.web,
+                id: 'http://www.antrebloc.com/antrebloc',
                 configuration: {
                     selection: [{
-                        field: 'price_adult',
+                        field: 'price.adult',
                         selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(1) > td:nth-child(2)'
                     }, {
-                        field: 'price_student',
+                        field: 'price.student',
                         selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(2) > td:nth-child(2)'
                     }, {
-                        field: 'price_child',
+                        field: 'price.child',
                         selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(3) > td:nth-child(2)'
                     }]
                 }
             }
-            /*{id: 'ChIJperuhX1x5kcRBWCfNzLZfCA', provider: providers.google},
-            {id: 'antrebloc94', provider: providers.facebook}*/
         ]
-    }/*,
+    },
     {
         name: 'arkosenation',
         sources: [
             {id: 'ChIJ9wDUl3ly5kcR8t3okyximic', provider: providers.google},
-            {id: 'arkosenation', provider: providers.facebook}
+            {id: 'arkosenation', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'https://nation.arkose.com',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: '#prices-salle-0 > div > ul > li:nth-child(1) > strong'
+                    }, {
+                        field: 'price.student',
+                        selector: '#prices-salle-1 > div > ul > li > strong'
+                    }, {
+                        field: 'price.child',
+                        selector: '#prices-salle-0 > div > ul > li:nth-child(2) > strong'
+                    }]
+                }
+            }
         ]
-    },
+    },*/
     {
         name: 'hardbloc',
         sources: [
             {id: 'ChIJGwquiQZz5kcRT7q_2UcHwcg', provider: providers.google},
-            {id: 'hardblocparis', provider: providers.facebook}
+            {id: 'hardblocparis', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'https://www.hardbloc.fr/nos-offres',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: '#content > section > section.main-content.default-padding > div > div > div > div:nth-child(2) > div:nth-child(1) > div > div > span.number-value.timer'
+                    }]
+                }
+            }
         ]
-    },
+    }/*,
     {
         name: 'arkosemontreuil',
         sources: [
