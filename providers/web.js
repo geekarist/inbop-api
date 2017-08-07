@@ -30,7 +30,7 @@ function deliver(placeUrl, configuration) {
                 var value;
                 if (sel.attribute) value = $(selector).attr(sel.attribute);
                 else value = $(selector).text();
-                setValue(data, field, value);
+                if (value && value.trim) setValue(data, field, value.trim());
                 return data;
             })).reduce((a, b) => merge(a, b))
         .then((resultToDeliver) => {

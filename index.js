@@ -113,7 +113,23 @@ var genericPlaces = [
         name: 'karma',
         sources: [
             {id: 'ChIJ94B4cPv05UcR4iE8Q0q6uyc', provider: providers.google},
-            {id: 'karma.escalade', provider: providers.facebook}
+            {id: 'karma.escalade', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'http://karma.ffme.fr/index.php/tarifs/acces',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: 'body > section > section.website-content.clearfix.zindex10 > div > div.main_component > article > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(2)'
+                    }, {
+                        field: 'price.student',
+                        selector: 'body > section > section.website-content.clearfix.zindex10 > div > div.main_component > article > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(3)'
+                    }, {
+                        field: 'price.child',
+                        selector: 'body > section > section.website-content.clearfix.zindex10 > div > div.main_component > article > table:nth-child(4) > tbody > tr:nth-child(2) > td:nth-child(4)'
+                    }]
+                }
+            }
         ]
     },
     {
