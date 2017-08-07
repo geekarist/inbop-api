@@ -14,7 +14,7 @@ var providers =
 };
 
 var genericPlaces = [
-    /*{
+    {
         name: 'antrebloc',
         sources: [
             {provider: providers.google, id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
@@ -59,7 +59,7 @@ var genericPlaces = [
                 }
             }
         ]
-    },*/
+    },
     {
         name: 'hardbloc',
         sources: [
@@ -71,17 +71,42 @@ var genericPlaces = [
                 configuration: {
                     selection: [{
                         field: 'price.adult',
-                        selector: '#content > section > section.main-content.default-padding > div > div > div > div:nth-child(2) > div:nth-child(1) > div > div > span.number-value.timer'
+                        selector: '#content > section > section.main-content.default-padding > div > div > div > div:nth-child(2) > div:nth-child(1) > div > div > span.number-value.timer',
+                        attribute: 'data-to'
+                    }, {
+                        field: 'price.student',
+                        selector: '#content > section > section.main-content.default-padding > div > div > div > div:nth-child(2) > div:nth-child(2) > div > div > span.number-value.timer',
+                        attribute: 'data-to'
+                    }, {
+                        field: 'price.child',
+                        selector: '#content > section > section.main-content.default-padding > div > div > div > div:nth-child(2) > div:nth-child(3) > div > div > span.number-value.timer',
+                        attribute: 'data-to'
                     }]
                 }
             }
         ]
-    }/*,
+    },
     {
         name: 'arkosemontreuil',
         sources: [
             {id: 'ChIJV0KhsYNy5kcRcXctX9iFB58', provider: providers.google},
-            {id: 'arkosemontreuil', provider: providers.facebook}
+            {id: 'arkosemontreuil', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'https://montreuil.arkose.com',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: '#prices-salle-0 > div > ul > li:nth-child(1) > strong'
+                    }, {
+                        field: 'price.student',
+                        selector: '#prices-salle-1 > div > ul > li > strong'
+                    }, {
+                        field: 'price.child',
+                        selector: '#prices-salle-0 > div > ul > li:nth-child(2) > strong'
+                    }]
+                }
+            }
         ]
     },
     {
@@ -118,7 +143,7 @@ var genericPlaces = [
             {id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8', provider: providers.google},
             {id: 'blocbuster', provider: providers.facebook}
         ]
-    }*/
+    }
 ]
 
 var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {

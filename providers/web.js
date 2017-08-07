@@ -27,7 +27,10 @@ function deliver(placeUrl, configuration) {
                 var field = sel.field;
                 const $ = cheerio.load(body);
                 var data = {};
-                setValue(data, field, $(selector).text());
+                var value;
+                if (sel.attribute) value = $(selector).attr(sel.attribute);
+                else value = $(selector).text();
+                setValue(data, field, value);
                 return data;
             })).reduce((a, b) => merge(a, b))
         .then((resultToDeliver) => {
