@@ -14,7 +14,7 @@ var providers =
 };
 
 var genericPlaces = [
-    {
+    /*{
         name: 'antrebloc',
         sources: [
             {provider: providers.google, id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
@@ -135,17 +135,49 @@ var genericPlaces = [
     {
         name: 'murmurpantin',
         sources: [
-            {id: 'ChIJV0KhsYNy5kcRcXctX9iFB58', provider: providers.google},
-            {id: 'murmurescalade', provider: providers.facebook}
+            {id: 'ChIJf2CV6E5s5kcRy6vgrFZNOY4', provider: providers.google},
+            {id: 'murmurescalade', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'https://www.murmur.fr/escalade-bloc-paris',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: 'body > div.site_wrapper > div > div > div > div > div > div > div > div.contentarea > div:nth-child(17) > div > div.module_price_table.price_table_wrapper > div:nth-child(3) > div > div.price_item_body > div.item_cost_wrapper > div.price_item_cost > h1'
+                    }, {
+                        field: 'price.student',
+                        selector: 'body > div.site_wrapper > div > div > div > div > div > div > div > div.contentarea > div:nth-child(17) > div > div.module_price_table.price_table_wrapper > div:nth-child(3) > div > div.price_item_body > div.item_cost_wrapper > div.price_item_cost > h1'
+                    }, {
+                        field: 'price.child',
+                        selector: 'body > div.site_wrapper > div > div > div > div > div > div > div > div.contentarea > div:nth-child(17) > div > div.module_price_table.price_table_wrapper > div:nth-child(3) > div > div.price_item_body > div.item_cost_wrapper > div.price_item_cost > h1'
+                    }]
+                }
+            }
         ]
-    },
+    },*/
     {
         name: 'blockoutstouen',
         sources: [
             {id: 'ChIJRY3odh5v5kcRQZP4WgfKm-s', provider: providers.google},
-            {id: '1734869523403048', provider: providers.facebook} // 1734869523403048 BlockOut
+            {id: '1734869523403048', provider: providers.facebook},
+            {
+                provider: providers.web,
+                id: 'http://www.blockout.fr/bo2-paris/tarifs',
+                configuration: {
+                    selection: [{
+                        field: 'price.adult',
+                        selector: '#sppb-tab1-1 > section:nth-child(1) > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                    }, {
+                        field: 'price.student',
+                        selector: '#sppb-tab1-1 > section.sppb-section.table_tarifs.tarifs_green.white_sousligne.tarifs_six > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                    }, {
+                        field: 'price.child',
+                        selector: '#sppb-tab1-1 > section:nth-child(3) > div > div > div > section.sppb-section.tarifs_five > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                    }]
+                }
+            }
         ]
-    },
+    }/*,
     {
         name: 'blocbustercnit',
         sources: [
@@ -159,7 +191,7 @@ var genericPlaces = [
             {id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8', provider: providers.google},
             {id: 'blocbuster', provider: providers.facebook}
         ]
-    }
+    }*/
 ]
 
 var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
