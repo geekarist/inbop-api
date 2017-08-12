@@ -45,12 +45,12 @@ function mapPlace(body) {
                 "opening": originalPlace.hours.sat_1_open,
                 "closing": originalPlace.hours.sat_1_close
             }
-        },
+        }/*,
         "price": originalPlace.price_range && {
             "adult": originalPlace.price_range,
             "student": originalPlace.price_range,
             "child": originalPlace.price_range
-        }
+        }*/
     };
     return mappedPlace;
 }

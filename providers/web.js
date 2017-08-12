@@ -1,8 +1,6 @@
 var request = require('request-promise');
 var cheerio = require('cheerio');
 var merge = require('lodash.merge');
-const Nightmare = require('nightmare');
-const nightmare = new Nightmare({show: true});
 
 // Copy/pasted from there: https://stackoverflow.com/a/20240290/1665730
 function setValue(object, path, value) {
@@ -20,17 +18,13 @@ function setValue(object, path, value) {
     o[a[a.length - 1]] = value;
 }
 
+function fetch(placeUrl) {
+    return request(placeUrl);
+}
+
 function deliver(placeUrl, configuration) {
 
-    return nightmare.goto(placeUrl)
-        .evaluate(() => {
-            return `<html>${document.documentElement.innerHTML}</html>`;
-        })
-        .end()
-        // .then(body => {
-        //   console.log(body);
-        //   return body;
-        // })
+    return fetch(placeUrl)
         .then(body =>
             configuration.selection.map(sel => {
                 var selector = sel.selector;
@@ -41,12 +35,12 @@ function deliver(placeUrl, configuration) {
                 if (sel.attribute) value = $(selector).attr(sel.attribute);
                 else value = $(selector).text();
                 if (value && value.trim) setValue(data, field, value.trim());
+                else console.warn(`No value for ${sel.field} in ${placeUrl}`)
                 return data;
             }).reduce((a, b) => merge(a, b)))
-        /*.then((result) => {
-            console.log(result);
-            return result;
-        })*/;
+        .catch((error) => {
+            console.warn(`Error providing ${placeUrl}: ${error}`)
+        });
 }
 
 module.exports = {

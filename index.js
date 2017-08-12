@@ -59,7 +59,7 @@ var genericPlaces = [
                 }
             }
         ]
-    }/*,
+    },
     {
         name: 'hardbloc',
         sources: [
@@ -191,7 +191,7 @@ var genericPlaces = [
             {id: 'ChIJlV-HgaJl5kcRL5xnLcfssX8', provider: providers.google},
             {id: 'blocbuster', provider: providers.facebook}
         ]
-    }*/
+    }
 ]
 
 var fetchAllPlacesPromise = Promise.all(genericPlaces.map(place => {
