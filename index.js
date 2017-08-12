@@ -14,7 +14,7 @@ var providers =
 };
 
 var genericPlaces = [
-    /*{
+    {
         name: 'antrebloc',
         sources: [
             {provider: providers.google, id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
@@ -59,7 +59,7 @@ var genericPlaces = [
                 }
             }
         ]
-    },
+    }/*,
     {
         name: 'hardbloc',
         sources: [
@@ -154,7 +154,7 @@ var genericPlaces = [
                 }
             }
         ]
-    },*/
+    },
     {
         name: 'blockoutstouen',
         sources: [
@@ -177,7 +177,7 @@ var genericPlaces = [
                 }
             }
         ]
-    }/*,
+    },
     {
         name: 'blocbustercnit',
         sources: [
