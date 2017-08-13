@@ -1,6 +1,7 @@
 var request = require('request-promise');
 var cheerio = require('cheerio');
 var merge = require('lodash.merge');
+const fs = require('fs');
 
 // Copy/pasted from there: https://stackoverflow.com/a/20240290/1665730
 function setValue(object, path, value) {
@@ -22,9 +23,18 @@ function fetch(placeUrl) {
     return request(placeUrl);
 }
 
+// const crypto = require('crypto');
+
 function deliver(placeUrl, configuration) {
 
     return fetch(placeUrl)
+        // .then(body => {
+        //     const hash = crypto.createHash('md5');
+        //     const urlHash = hash.update(placeUrl).digest('hex');
+        //     const $ = cheerio.load(body);
+        //     fs.writeFileSync(`/tmp/tarifs-request-${urlHash}.html`, $.html());
+        //     return body;
+        // })
         .then(body =>
             configuration.selection.map(sel => {
                 var selector = sel.selector;

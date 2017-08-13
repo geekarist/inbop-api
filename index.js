@@ -166,13 +166,13 @@ var genericPlaces = [
                 configuration: {
                     selection: [{
                         field: 'price.adult',
-                        selector: '#sppb-tab1-1 > section:nth-child(1) > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                        selector: '#sp-page-builder > div > section.sppb-section.no-padding > div > div > div > div > div > div > div.sppb-tab-pane.fluid-row.sppb-fade.active.in > section:nth-child(1) > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
                     }, {
                         field: 'price.student',
-                        selector: '#sppb-tab1-1 > section.sppb-section.table_tarifs.tarifs_green.white_sousligne.tarifs_six > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                        selector: '#sp-page-builder > div > section.sppb-section.no-padding > div > div > div > div > div > div > div.sppb-tab-pane.fluid-row.sppb-fade.active.in > section.sppb-section.table_tarifs.tarifs_green.white_sousligne.tarifs_six > div > div > div > section > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
                     }, {
                         field: 'price.child',
-                        selector: '#sppb-tab1-1 > section:nth-child(3) > div > div > div > section.sppb-section.tarifs_five > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
+                        selector: '#sp-page-builder > div > section.sppb-section.no-padding > div > div > div > div > div > div > div.sppb-tab-pane.fluid-row.sppb-fade.active.in > section:nth-child(3) > div > div > div > section.sppb-section.tarifs_five > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div'
                     }]
                 }
             }
