@@ -5,12 +5,14 @@ var merge = require('lodash.merge');
 var googleProvider = require('./providers/google.js');
 var facebookProvider = require('./providers/facebook.js');
 var webProvider = require('./providers/web.js');
+var customProvider = require('./providers/custom.js');
 
 var providers =
 {
     google: googleProvider,
     facebook: facebookProvider,
-    web: webProvider
+    web: webProvider,
+    custom: customProvider
 };
 
 var genericPlaces = [
@@ -161,6 +163,12 @@ var genericPlaces = [
             {id: 'ChIJRY3odh5v5kcRQZP4WgfKm-s', provider: providers.google},
             {id: '1734869523403048', provider: providers.facebook},
             {
+                provider: providers.custom,
+                configuration: {
+                    'img-url': 'https://www.gymlib.com/img/gyms/block-out-paris-st-ouen/e079b993-bcd2-49d0-a2d3-1d7a06498020.jpeg'
+                }
+            },
+            {
                 provider: providers.web,
                 id: 'http://www.blockout.fr/bo2-paris/tarifs',
                 configuration: {
@@ -182,7 +190,13 @@ var genericPlaces = [
         name: 'blocbustercnit',
         sources: [
             {id: 'ChIJ-eQD5gNl5kcR1fa8broSsfo', provider: providers.google},
-            {id: '446762318846420', provider: providers.facebook} // 446762318846420 Blocbuster-La-Défense
+            {id: '446762318846420', provider: providers.facebook},
+            {
+                provider: providers.custom,
+                configuration: {
+                    'img-url': 'http://www.blocbuster.fr/wp-content/uploads/2015/11/12265661_1202040076478235_5268962440861218534_o-1170x780.jpg'
+                }
+            }
         ]
     },
     {
