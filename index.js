@@ -20,7 +20,7 @@ var genericPlaces = [
         name: 'antrebloc',
         sources: [
             {provider: providers.google, id: 'ChIJperuhX1x5kcRBWCfNzLZfCA'},
-            {provider: providers.facebook, id: 'antrebloc94'},
+            {provider: providers.facebook, id: 'antrebloc94'}/*,
             {
                 provider: providers.web,
                 id: 'http://www.antrebloc.com/antrebloc',
@@ -36,7 +36,7 @@ var genericPlaces = [
                         selector: '#tarifs-tab-6 > table > tbody > tr:nth-child(3) > td:nth-child(2)'
                     }]
                 }
-            }
+            }*/
         ]
     },
     {
