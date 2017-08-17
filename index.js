@@ -230,6 +230,7 @@ fetchAllPlacesPromise
         console.log(`${apiResponse.places.length} places fetched`);
 
         app.get('/places.json', (req, res) => {
+            res.header('Cache-control', 'max-age=86400');
             res.send(apiResponse);
         });
 
